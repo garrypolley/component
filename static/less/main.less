@@ -1,0 +1,70 @@
+@import "lesshat-prefixed.less";
+
+html {
+  width: 100%;
+  background-color: grey;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.percent-width(@value) {
+  width: 100% * @value;
+}
+
+.1of2 () {
+  .percent-width(.5);
+}
+
+.1of3 () {
+  .percent-width(.33);
+}
+
+.1of4 () {
+  .percent-width(.25);
+}
+
+.1of5 () {
+  .percent-width(.20);
+}
+
+.1of6 () {
+  .percent-width(.16);
+}
+
+.tab-group {
+  width: 100%;
+
+  .tab {
+    display: inline-block;
+    .1of3;
+
+    header {
+      background-color: blue;
+      display: inline-block;
+
+      &.active {
+        +article {
+          display: block;
+          position: relative;
+          top: 25px;
+        }
+
+        /*
+          Do a calculation with a mixin that is based on
+          class of 1ofX that does a multiply of the X
+          */
+      }
+    }
+
+    article {
+      display: none;
+      min-height: 500px;
+      background-color: red;
+      margin-top: -22px;
+    }
+  }
+}
