@@ -9,30 +9,33 @@ body {
   width: 960px;
   margin: 0 auto;
   background-color: white;
+  padding: 20px;
 }
 
 .percent-width(@value) {
   width: 100% * @value;
 }
 
-.1of2 () {
-  .percent-width(.5);
-}
+.addWidthTypes() {
+  &.oneOfTwo {.percent-width(.495);}
 
-.1of3 () {
-  .percent-width(.33);
-}
+  &.oneOfThree {.percent-width(.33);}
+  &.twoOfThree {.percent-width(.66);}
 
-.1of4 () {
-  .percent-width(.25);
-}
+  &.oneOfFour {.percent-width(.245);}
+  &.twoOfFour {.percent-width(.495);}
+  &.threeOfFour {.percent-width(.745);}
 
-.1of5 () {
-  .percent-width(.20);
-}
+  &.oneOfFive {.percent-width(.195);}
+  &.twoOfFive {.percent-width(.395);}
+  &.threeOfFive {.percent-width(.695);}
+  &.fourOfFive {.percent-width(.795);}
 
-.1of6 () {
-  .percent-width(.16);
+  &.oneOfSix {.percent-width(.16);}
+  &.twoOfSix {.percent-width(.325);}
+  &.threeOfSix {.percent-width(.495);}
+  &.fourOfSix {.percent-width(.66);}
+  &.fiveOfSix {.percent-width(.825);}
 }
 
 .tab-group {
@@ -40,31 +43,29 @@ body {
 
   .tab {
     display: inline-block;
-    .1of3;
+    color: white;
+    .addWidthTypes;
 
     header {
+      width: 100%;
       background-color: blue;
       display: inline-block;
+      padding: 5px;
 
       &.active {
         +article {
           display: block;
           position: relative;
-          top: 25px;
+          top: 32px;
         }
-
-        /*
-          Do a calculation with a mixin that is based on
-          class of 1ofX that does a multiply of the X
-          */
       }
     }
 
     article {
       display: none;
-      min-height: 500px;
+      min-height: 200px;
       background-color: red;
-      margin-top: -22px;
+      margin-top: -27px;
     }
   }
 }
