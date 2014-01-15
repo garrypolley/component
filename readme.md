@@ -15,4 +15,4 @@ node_modules/nodemon/bin/nodemon.js --exec 'node_modules/less/bin/lessc static/l
 install npm stuff with the `packages.json` file.
 
 used python to run the server:
-`pythom -m SimpleHTTServer` or `python -m http.server`
+`python -m SimpleHTTServer` or `python -m http.server`
