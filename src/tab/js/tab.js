@@ -1,5 +1,6 @@
+/* globals $ */
 
-$(document).ready(function(){
+component.tab = function() {
   $('.tab-group').on('click', 'header', function(){
     var $this = $(this),
       $siblingHeaders = $this.parents('section').siblings().children('header'),
@@ -39,4 +40,4 @@ $(document).ready(function(){
     });
     $siblingHeaders.siblings('article').css('width', 100 + '%');
   });
-});
+};

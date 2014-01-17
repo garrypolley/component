@@ -2,28 +2,12 @@
 
 This is simply a testing ground for making HTML based components.
 
-Right now the index.html + main.less + plugins.less have the only "component".  Which is
-a tabbed layout of HTML with a structure of:
+Current components:
 
-```html
-<div class="tab-group">
-    <section class="tab wXofY">
-        <header></header>
-        <article></article>
-    </section>
-</div>
-```
+* [tab](./tab/)
 
-The classes are necessary as is the markup.  The wXofY class can be:
-
-* w1of2
-* w1of4
-* w4of6
-* Goes all the way up to a configurable limit, currently w14of15
 
 ## running locally
-
-I recommend running all commands from the root of this repo.
 
 Install npm -> `brew install nodejs`
 
@@ -33,13 +17,17 @@ Make sure you have npm modules loaded up locally:
 npm install
 ````
 
-I use this command to compile the less files (run it from the root of the git repo):
+I use this command to compile the less & js files (run it from inside src/):
 
 ```shell
-node_modules/nodemon/bin/nodemon.js --exec 'node_modules/less/bin/lessc static/less/main.less static/css/main.css' -e less,css
+../node_modules/nodemon/bin/nodemon.js --exec './compile.sh' -e less,css,js
 ```
 
-used python to run the server:
+This command builds the `component.css` and `component.min.js` files in the [build](./build/)
+directory.  These files are the needed files to make this all work.
+
+
+May use python to run the server in the examples folder:
 
 ```shell
 python -m SimpleHTTServer
