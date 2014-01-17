@@ -1,0 +1,43 @@
+/*
+  This file is used to generate the LESS for all of the
+  width classes, such as w1of2, w19of20, etc.
+
+  Will be from oneOfTwo to nineteenOfTwenty.
+
+  loops inspired from: https://gist.github.com/edwinwebb/5155504
+*/
+
+.percent-width(@value) {
+  width: percentage(@value);
+}
+
+/*
+  Used as the inner loop that creates each set of width class
+
+  e.g. if you pass (1; 4) it makes:
+    &.w1of4 {width: 1/4}
+    &.w2of4 {width: 2/4}
+    &.w3of4 {width: 3/4}
+*/
+.generateWidths(@start; @end;)  when(@start < @end) {
+  &.w@{start}of@{end} {
+    .percent-width((@start / @end) - .0035);
+  }
+  .generateWidths((@start + 1); @end);
+}
+
+/*
+  Used to loop over our range of possible widths for our box layout.
+
+  if you pass, (2;4) you'll generate all the varients of:
+    &.xof2, &xof3, &xof4
+*/
+.generateLoop(@index; @to) when(@index =< @to) {
+  .generateWidths(1; @index);
+  .generateLoop((@index + 1); @to);
+}
+
+/* Call this mixin to generate the various allowed widths */
+.generateWidthMixin(@from: 2; @to: 20;) {
+  .generateLoop(@from; @to);
+}

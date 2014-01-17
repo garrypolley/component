@@ -1,4 +1,5 @@
 @import "lesshat-prefixed.less";
+@import "widths.less";
 
 /* Variables used for calculations, could be overridden */
 
@@ -12,7 +13,7 @@
 @tab-header-padding: 5px;
 
 // article inside .tab (tab body)
-@tab-body-offset: @tab-header-height + @tab-header-padding;
+@tab-body-offset: (@tab-header-height + @tab-header-padding);
 @tab-body-min-height: 200px;
 @tab-body-color: white;
 @tab-body-top-margin: 10px;
@@ -29,38 +30,12 @@ body {
   padding: 20px;
 }
 
-.percent-width(@value) {
-  width: percentage(@value);
-}
-
-.addWidthTypes() {
-  &.oneOfTwo {.percent-width(.495);}
-
-  &.oneOfThree {.percent-width(.33);}
-  &.twoOfThree {.percent-width(.66);}
-
-  &.oneOfFour {.percent-width(.245);}
-  &.twoOfFour {.percent-width(.495);}
-  &.threeOfFour {.percent-width(.745);}
-
-  &.oneOfFive {.percent-width(.195);}
-  &.twoOfFive {.percent-width(.395);}
-  &.threeOfFive {.percent-width(.695);}
-  &.fourOfFive {.percent-width(.795);}
-
-  &.oneOfSix {.percent-width(.16);}
-  &.twoOfSix {.percent-width(.325);}
-  &.threeOfSix {.percent-width(.495);}
-  &.fourOfSix {.percent-width(.66);}
-  &.fiveOfSix {.percent-width(.825);}
-}
-
 .tab-group {
   width: 100%;
 
   .tab {
     display: inline-block;
-    .addWidthTypes;
+    .generateWidthMixin(2; 15);
 
     header {
       width: 100%;
@@ -74,7 +49,7 @@ body {
         +article {
           display: block;
           position: relative;
-          top: @tab-header-height + @tab-header-padding + @tab-body-top-margin;
+          top: (@tab-header-height + @tab-header-padding + @tab-body-top-margin);
         }
       }
     }
@@ -84,7 +59,7 @@ body {
       color: @tab-body-color;
       min-height: @tab-body-min-height;
       background-color: red;
-      margin-top: -1 * @tab-body-offset;
+      margin-top: (-1 * @tab-body-offset);
       margin-bottom: @tab-body-offset;
     }
   }
