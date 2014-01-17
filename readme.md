@@ -7,19 +7,19 @@ a tabbed layout of HTML with a structure of:
 
 ```html
 <div class="tab-group">
-    <section class="tab xOfY">
+    <section class="tab wXofY">
         <header></header>
         <article></article>
     </section>
 </div>
 ```
 
-The classes are necessary as is the markup.  The xOfY class can be:
+The classes are necessary as is the markup.  The wXofY class can be:
 
-* oneOfTwo
-* twoOfThree
-* fourOfSix
-* Goes all the way up to fiveOfSix
+* w1of2
+* w1of4
+* w4of6
+* Goes all the way up to a configurable limit, currently w14of15
 
 ## running locally
 
