@@ -4,7 +4,7 @@ This is simply a testing ground for making HTML based components.
 
 Current components:
 
-* [tab](./tab/)
+* [tab](./src/tab/)
 
 
 ## running locally
