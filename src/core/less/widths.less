@@ -21,7 +21,7 @@
 */
 .generateWidths(@start; @end;)  when(@start < @end) {
   &.w@{start}of@{end} {
-    .percent-width((@start / @end) - .0035);
+    .percent-width((@start / @end) - .01365);
   }
   .generateWidths((@start + 1); @end);
 }

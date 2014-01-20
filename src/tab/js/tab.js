@@ -12,7 +12,7 @@ component.tab = function() {
 
     if (headerIndex > 0) {
       for (i=0; i < headerIndex; i++) {
-        widths += $($tabs[i]).width();
+        widths += $($tabs[i]).outerWidth(true);
       }
 
       widths += headerIndex * $headerGroup.length;
@@ -35,7 +35,7 @@ component.tab = function() {
     // Make active tab body show, and locate to the correct position
     $this.toggleClass('active');
     $this.siblings('article').css({
-      width: $mainContainer.width() + Math.pow($headerGroup.length, 2),
+      width: $mainContainer.width(),
       left: widths * -1 + 'px'
     });
     $siblingHeaders.siblings('article').css('width', 100 + '%');

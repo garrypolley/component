@@ -1,3 +1,4 @@
+@import "../../core/less/lesshat.less";
 @import "../../core/less/widths.less";
 
 /* Variables used for calculations, could be overridden */
@@ -8,6 +9,8 @@
 
 // header inside .tab (tab header)
 @tab-header-color: white;
+@tab-header-background-color: blue;
+@tab-header-active-background-color: green;
 @tab-header-height: 45px;
 @tab-header-padding: 5px;
 
@@ -15,6 +18,7 @@
 @tab-body-offset: (@tab-header-height + @tab-header-padding);
 @tab-body-min-height: 200px;
 @tab-body-color: white;
+@tab-body-background-color: red;
 @tab-body-top-margin: 10px;
 
 .tab-group {
@@ -22,20 +26,27 @@
 
   .tab {
     display: inline-block;
+    padding: 5px;
     .generateWidthMixin(2; 15);
 
     header {
       width: 100%;
+      .border-radius(5px);
       height: @tab-header-height;
       color: @tab-header-color;
-      background-color: blue;
+      background-color: @tab-header-background-color;
       display: inline-block;
       padding: @tab-header-padding;
 
       &.active {
+        background-color: green;
+        margin-bottom: (-1 *  (@tab-body-top-margin + @tab-header-padding));
+        height: (@tab-body-top-margin + @tab-header-padding + @tab-header-height);
+
         +article {
           display: block;
           position: relative;
+          .border-radius(0 0 5px 5px);
           top: (@tab-header-height + @tab-header-padding + @tab-body-top-margin);
         }
       }
@@ -45,7 +56,7 @@
       display: none;
       color: @tab-body-color;
       min-height: @tab-body-min-height;
-      background-color: red;
+      background-color: @tab-body-background-color;
       margin-top: (-1 * @tab-body-offset);
       margin-bottom: @tab-body-offset;
     }
