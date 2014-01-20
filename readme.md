@@ -11,10 +11,10 @@ Current components:
 
 Install npm -> `brew install nodejs`
 
-Make sure you have npm modules loaded up locally:
+Make sure you have npm modules loaded up locally, use force to make local commands work:
 
 ```shell
-npm install
+npm install --force
 ````
 
 I use this command to compile the less & js files (run it from inside src/):
