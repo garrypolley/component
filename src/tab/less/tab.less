@@ -44,9 +44,10 @@
         height: (@tab-body-top-margin + @tab-header-padding + @tab-header-height);
 
         +article {
-          display: block;
+          display: table;
           position: relative;
           .border-radius(0 0 5px 5px);
+          padding-top: 5px;
           top: (@tab-header-height + @tab-header-padding + @tab-body-top-margin);
         }
       }
