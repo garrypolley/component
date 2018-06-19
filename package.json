@@ -6,7 +6,7 @@
   "dependencies": {
     "less": "~1.6.1",
     "nodemon": "~1.0.8",
-    "uglify-js": "~2.4.10"
+    "uglify-js": "~2.6.0"
   },
   "devDependencies": {},
   "scripts": {
